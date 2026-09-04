@@ -5,13 +5,27 @@ export const company = {
     "Build practical technology that improves how people work, operate and live.",
   vision:
     "Build a growing portfolio of useful technology products serving businesses, professionals and consumers across multiple industries.",
-  manifestoPrimary:
-    "Technology matters when it makes something difficult feel simple.",
-  manifestoSecondary: "We start with the problem — not the technology.",
-  storyHeading: "We're building more than software.",
-  storyBody:
-    "PentaSoul exists to bring product thinking, engineering and design together around problems worth solving.",
-  aboutHero: "Useful technology starts with understanding.",
+  heroEyebrow: "Technology for people",
+  heroHeading: ["We build technology", "that moves", "businesses forward."],
+  heroBody:
+    "We create digital products around real problems — software that helps people work better, operate with clarity, and move their organizations forward.",
+  aboutEyebrow: "About us",
+  aboutHeading: "A smarter tomorrow is a brighter tomorrow.",
+  aboutBody:
+    "PentaSoul exists to bring product thinking, engineering and design together around problems worth solving. We start with the work itself, then build technology people can rely on every day.",
+  wallLine: "Five Minds. One Vision.",
+  servicesHeading: ["From idea to real-world ", "solutions."],
+  servicesBody:
+    "We take an idea from first principle through to a living product — strategy, design, engineering, and the systems that keep it running.",
+  workHeading: "Products creating real impact.",
+  philosophyHeading: ["People. Products.", "A Better Tomorrow."],
+  philosophyBody:
+    "We are builders, thinkers, and doers — creating technology with purpose, and products people can actually use. The work is to make something difficult feel simple.",
+  philosophyWords: ["Build", "Innovate", "Scale", "Together"],
+  ctaHeading: ["Have an idea?", "Let's make it real."],
+  ctaBody:
+    "Whether it is a product, a partnership, or a conversation about what comes next — we would like to hear from you.",
+  footerLine: "Built with purpose for a better tomorrow.",
 } as const;
 
 export const principles = [
@@ -39,43 +53,5 @@ export const principles = [
     number: "05",
     title: "Keep improving",
     body: "A product is never finished. We return to the work, listen to how it is used, and make it better.",
-  },
-] as const;
-
-export const process = [
-  {
-    id: "think",
-    label: "Think",
-    body: "Understand the problem in the world it actually lives in.",
-  },
-  {
-    id: "design",
-    label: "Design",
-    body: "Shape the simplest useful expression of that understanding.",
-  },
-  {
-    id: "build",
-    label: "Build",
-    body: "Engineer it carefully enough to be trusted every day.",
-  },
-  {
-    id: "improve",
-    label: "Improve",
-    body: "Stay with it. Refine it. Let real use change the product.",
-  },
-] as const;
-
-export const approach = [
-  {
-    title: "Start with the problem",
-    body: "Before software, we spend time with the work itself — the school office, the hearing list, the shop ledger, the counter.",
-  },
-  {
-    title: "Design for daily use",
-    body: "Products have to survive Tuesday afternoon, not just a launch. We design for repetition, interruption and real conditions.",
-  },
-  {
-    title: "Own the whole product",
-    body: "Engineering, design and product thinking sit together. PentaSoul does not hand work off and walk away.",
   },
 ] as const;

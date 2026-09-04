@@ -1,110 +1,94 @@
 import Link from "next/link";
-import { Logo } from "@/components/brand/Logo";
-import { ArrowLink } from "@/components/ui/ArrowLink";
-import { Container } from "@/components/ui/Container";
-import { currentProducts, futureProducts } from "@/data/products";
-import { footerNav } from "@/data/navigation";
+import { Wordmark } from "@/components/brand/Logo";
+import { footerLinks, legalLinks } from "@/data/navigation";
+import { company } from "@/data/company";
 import { SITE } from "@/lib/constants/site";
+
+const socials = [
+  {
+    label: "LinkedIn",
+    icon: (
+      <svg viewBox="0 0 24 24" className="size-3.5 fill-current" aria-hidden="true">
+        <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.98h4.56V24H.22V8.98zM8.34 8.98h4.37v2.05h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.47 3.04 5.47 7v8.35h-4.56v-7.4c0-1.77-.03-4.04-2.46-4.04-2.46 0-2.84 1.92-2.84 3.9V24H8.34V8.98z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Twitter",
+    icon: (
+      <svg viewBox="0 0 24 24" className="size-3.5 fill-current" aria-hidden="true">
+        <path d="M18.9 1.15h3.67l-8.02 9.17L24 22.85h-7.4l-5.8-7.58-6.63 7.58H.48l8.58-9.81L0 1.15h7.59l5.24 6.93L18.9 1.15zm-1.29 19.5h2.03L6.48 3.2H4.3l13.31 17.45z" />
+      </svg>
+    ),
+  },
+  {
+    label: "GitHub",
+    icon: (
+      <svg viewBox="0 0 24 24" className="size-3.5 fill-current" aria-hidden="true">
+        <path d="M12 .3C5.37.3 0 5.67 0 12.3c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.28-.01-1.02-.02-2-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.85 1.24 1.85 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22 0 1.61-.01 2.91-.01 3.31 0 .32.22.7.82.58A12.01 12.01 0 0 0 24 12.3C24 5.67 18.63.3 12 .3z" />
+      </svg>
+    ),
+  },
+  {
+    label: "YouTube",
+    icon: (
+      <svg viewBox="0 0 24 24" className="size-3.5 fill-current" aria-hidden="true">
+        <path d="M23.5 6.2a3.02 3.02 0 0 0-2.13-2.14C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.37.46A3.02 3.02 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3.02 3.02 0 0 0 2.13 2.14C4.5 20.4 12 20.4 12 20.4s7.5 0 9.37-.46a3.02 3.02 0 0 0 2.13-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8zM9.75 15.57V8.43L15.84 12l-6.09 3.57z" />
+      </svg>
+    ),
+  },
+];
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-ink text-white">
-      <div className="pointer-events-none absolute -right-24 -bottom-32 w-[520px] opacity-40">
-        <svg viewBox="0 0 200 220" className="w-full" aria-hidden>
-          <g fill="none" stroke="rgba(118,87,214,0.45)" strokeWidth="1">
-            <path d="M100 8 L188 58 L188 148 L100 198 L12 148 L12 58 Z" />
-            <path d="M100 8 L188 58 L100 108 L12 58 Z" />
-            <path d="M36 64 L100 100 L164 64" />
-            <path d="M50 76 L100 104 L150 76" />
-            <path d="M28 70 L28 140 L90 176" />
-            <path d="M172 70 L172 140 L110 176" />
-            <path d="M100 108 L100 168" />
-          </g>
-        </svg>
-      </div>
+    <footer className="bg-ink text-white">
+      <div className="mx-auto max-w-[1240px] px-6 pt-14 pb-8 md:px-10">
+        <div className="grid grid-cols-1 items-center gap-8 border-b border-white/10 pb-10 md:grid-cols-[1fr_auto_1fr]">
+          <Link href="/" className="justify-self-start">
+            <Wordmark className="text-white" />
+          </Link>
 
-      <Container className="relative pt-24 pb-10">
-        <div className="grid gap-16 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <Link href="/" className="inline-flex items-center gap-3" aria-label="PentaSoul home">
-              <Logo className="h-12 w-10" />
-              <span className="font-display text-2xl font-bold tracking-[0.22em] uppercase">
-                PentaSoul
-              </span>
-            </Link>
-            <p className="font-display mt-10 max-w-sm text-3xl leading-[1.15] font-semibold tracking-tight text-white/90">
-              {SITE.tagline}
-            </p>
-          </div>
+          <nav aria-label="Footer" className="flex flex-wrap justify-center gap-x-7 gap-y-3">
+            {footerLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm text-white/70 transition-colors hover:text-white"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
 
-          <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:col-span-7 lg:grid-cols-3">
-            <div>
-              <p className="text-meta mb-6 text-muted">Company</p>
-              <ul className="space-y-3">
-                {footerNav.company.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="text-[17px] text-white/80 transition-colors hover:text-white"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <p className="text-meta mb-6 text-muted">Products</p>
-              <ul className="space-y-3">
-                {currentProducts.map((product) => (
-                  <li key={product.id}>
-                    <ArrowLink
-                      href={product.href ?? "#"}
-                      external
-                      className="text-[17px] tracking-normal normal-case"
-                    >
-                      {product.name}
-                    </ArrowLink>
-                  </li>
-                ))}
-                {futureProducts.slice(0, 1).map((product) => (
-                  <li key={product.id} className="text-[17px] text-white/45">
-                    {product.name}
-                    <span className="text-meta ml-2 text-muted">Coming Soon</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <p className="text-meta mb-6 text-muted">Legal</p>
-              <ul className="space-y-3">
-                {footerNav.legal.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="text-[17px] text-white/80 transition-colors hover:text-white"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <ul className="flex justify-start gap-3 md:justify-end">
+            {socials.map((social) => (
+              <li key={social.label}>
+                <span
+                  aria-label={`${social.label} — coming soon`}
+                  title={`${social.label} — coming soon`}
+                  className="grid size-9 place-items-center rounded-full border border-white/15 text-white/70"
+                >
+                  {social.icon}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div className="mt-24 flex flex-col gap-4 border-t border-white/10 pt-8 sm:flex-row sm:items-end sm:justify-between">
-          <p className="text-meta text-muted">
+        <div className="flex flex-col gap-4 pt-6 text-sm text-white/45 sm:flex-row sm:items-center sm:justify-between">
+          <p>
             © {SITE.copyrightYear} {SITE.name}
           </p>
-          <p className="max-w-md text-sm leading-relaxed text-white/40">
-            An independent technology company creating products around problems
-            worth solving.
-          </p>
+          <div className="flex gap-5">
+            {legalLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="hover:text-white/80">
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <p className="sm:text-right">{company.footerLine}</p>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }

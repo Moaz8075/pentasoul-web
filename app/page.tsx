@@ -1,25 +1,19 @@
 import { Hero } from "@/components/sections/Hero";
-import { Manifesto } from "@/components/sections/Manifesto";
-import { Domains } from "@/components/sections/Domains";
-import { ProductsSequence } from "@/components/sections/ProductsSequence";
-import { Future } from "@/components/sections/Future";
-import { CompanyStory } from "@/components/sections/CompanyStory";
-import { Principles } from "@/components/sections/Principles";
-import { People } from "@/components/sections/People";
-import { HomeContact } from "@/components/sections/HomeContact";
+import { About } from "@/components/sections/About";
+import { Services } from "@/components/sections/Services";
+import { Work } from "@/components/sections/Work";
+import { Philosophy } from "@/components/sections/Philosophy";
+import { ContactCta } from "@/components/sections/ContactCta";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <Manifesto />
-      <Domains />
-      <ProductsSequence />
-      <Future />
-      <CompanyStory />
-      <Principles />
-      <People />
-      <HomeContact />
+      <About />
+      <Services />
+      <Work />
+      <Philosophy />
+      <ContactCta />
     </>
   );
 }

@@ -12,7 +12,4 @@ export const PRODUCT_URLS = {
   legalease:
     process.env.NEXT_PUBLIC_LEGALEASE_URL ??
     "https://placeholder.pentasoul.dev/legalease",
-  roznamcha:
-    process.env.NEXT_PUBLIC_ROZNAMCHA_URL ??
-    "https://placeholder.pentasoul.dev/roznamcha",
 } as const;

@@ -1,107 +1,53 @@
-"use client";
-
-import { useRef } from "react";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { HeroGeometry } from "@/components/geometry/HeroGeometry";
-import { easeOut, gsap, registerGsap, useGSAP } from "@/lib/animations/gsap";
-import { useReducedMotion } from "@/lib/utils/use-reduced-motion";
+import Image from "next/image";
+import { Mouse } from "lucide-react";
+import { Container } from "@/components/ui/Container";
+import { PillButton } from "@/components/ui/PillButton";
+import { WatchStory } from "@/components/sections/WatchStory";
+import { company } from "@/data/company";
 
 export function Hero() {
-  const root = useRef<HTMLElement>(null);
-  const reduced = useReducedMotion();
-
-  useGSAP(
-    () => {
-      registerGsap();
-      const ctx = gsap.context(() => {
-        const lines = root.current?.querySelectorAll(".geo-line") ?? [];
-        lines.forEach((line) => {
-          const el = line as SVGGeometryElement;
-          const length = "getTotalLength" in el ? el.getTotalLength() : 400;
-          gsap.set(el, { strokeDasharray: length, strokeDashoffset: length });
-        });
-
-        if (reduced) {
-          gsap.set([".hero-meta", ".hero-line", ".hero-copy", ".hero-cta", ".geo-line"], {
-            opacity: 1,
-            y: 0,
-            clipPath: "inset(0% 0% 0% 0%)",
-            strokeDashoffset: 0,
-          });
-          return;
-        }
-
-        const tl = gsap.timeline({ defaults: { ease: easeOut } });
-        tl.to(".geo-line", { strokeDashoffset: 0, duration: 1.05, stagger: 0.018 }, 0)
-          .from(".geo-grid", { opacity: 0, duration: 0.9 }, 0.12)
-          .from(".hero-meta", { opacity: 0, y: 10, duration: 0.4 }, 0.22)
-          .from(".hero-line", {
-            clipPath: "inset(100% 0% 0% 0%)",
-            y: 24,
-            duration: 0.62,
-            stagger: 0.1,
-          }, 0.32)
-          .from(".hero-copy", { opacity: 0, y: 16, duration: 0.45 }, 0.72)
-          .from(".hero-cta", { opacity: 0, y: 12, duration: 0.4, stagger: 0.08 }, 0.84);
-      }, root);
-
-      return () => ctx.revert();
-    },
-    { scope: root, dependencies: [reduced] },
-  );
-
   return (
-    <section
-      ref={root}
-      data-nav-theme="dark"
-      className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink pt-28 pb-10 sm:pb-14"
-    >
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-x-0 top-0 h-[58%] overflow-hidden opacity-40">
-          <div className="geo-grid grid-perspective h-[220%] w-full origin-top" />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ink/20 to-ink" />
-        <div className="absolute -right-[8%] -bottom-[6%] h-[92%] w-[78%] opacity-90">
-          <HeroGeometry />
-        </div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,rgba(80,58,145,0.18),transparent_42%)]" />
-      </div>
+    <section className="bg-white lg:h-[calc(100dvh-76px)] lg:max-h-[calc(100dvh-76px)]">
+      <Container className="h-full py-6 lg:py-8">
+        <div className="grid h-full items-center gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.85fr)] lg:gap-12">
+          <div className="flex flex-col justify-center py-2 pr-2 lg:min-h-0 lg:py-0 lg:pr-6">
+            <p className="text-[12px] font-medium tracking-[0.22em] text-muted uppercase">
+              {company.heroEyebrow}
+            </p>
+            <h1 className="mt-4 max-w-[18ch] text-[clamp(2.5rem,5vh,4.25rem)] leading-[1.12] font-bold tracking-[-0.045em] text-ink">
+              We build technology that moves{" "}
+              <span className="text-purple">businesses forward.</span>
+            </h1>
+            <p className="mt-5 max-w-[40rem] text-[16px] leading-[1.7] text-muted">
+              {company.heroBody}
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-5">
+              <PillButton href="/contact">Let&apos;s Build Together</PillButton>
+              <WatchStory />
+            </div>
+            <div className="mt-10 flex items-center gap-4 text-[13px] text-muted lg:mt-12">
+              <Mouse size={18} strokeWidth={1.6} />
+              <span>Scroll to explore</span>
+              <span className="h-px w-28 bg-ink/15 sm:w-40" />
+            </div>
+          </div>
 
-      <div className="relative mx-auto w-full max-w-[1680px] px-5 sm:px-8 lg:px-12">
-        <div className="hero-meta mb-8 flex flex-col gap-1 text-muted sm:mb-10">
-          <p className="text-meta">PentaSoul</p>
-          <p className="text-meta">Independent technology company</p>
-        </div>
-
-        <h1 className="text-display max-w-[18ch]">
-          <span className="hero-line block overflow-hidden">Building</span>
-          <span className="hero-line block overflow-hidden text-white/88">What</span>
-          <span className="hero-line block overflow-hidden">
-            Comes{" "}
-            <span className="text-white/55">Next.</span>
-          </span>
-        </h1>
-
-        <div className="mt-10 flex max-w-6xl flex-col gap-8 lg:mt-14 lg:flex-row lg:items-end lg:justify-between">
-          <p className="hero-copy max-w-md text-[17px] leading-relaxed text-white/60 sm:text-[18px]">
-            PentaSoul creates technology products designed around meaningful
-            real-world problems.
-          </p>
-          <div className="flex flex-wrap items-center gap-8">
-            <Link
-              href="#approach"
-              className="hero-cta group inline-flex items-center gap-3 bg-white px-6 py-3.5 text-ink"
-            >
-              <span className="text-meta text-ink">Explore PentaSoul</span>
-              <ArrowUpRight className="size-3.5 transition-transform duration-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
-            <Link href="/products" className="hero-cta text-meta text-white/70 hover:text-white">
-              Our Products
-            </Link>
+          <div className="relative h-[min(52vh,420px)] overflow-hidden rounded-[28px] sm:h-[min(56vh,520px)] lg:h-full lg:min-h-0">
+            <Image
+              src="/images/hero-office.png"
+              alt="A modern studio looking out over the city at dusk"
+              fill
+              priority
+              sizes="(min-width: 1024px) 46vw, 100vw"
+              className="object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-l from-ink/35 via-transparent to-transparent" />
+            <p className="absolute top-1/2 right-6 hidden -translate-y-1/2 text-[11px] font-medium tracking-[0.42em] text-white uppercase [writing-mode:vertical-rl] sm:block">
+              Ideas · Products · People · Impact
+            </p>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
