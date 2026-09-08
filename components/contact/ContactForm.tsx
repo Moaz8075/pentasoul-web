@@ -44,11 +44,14 @@ export function ContactForm() {
     setStatus(result.ok ? "sent" : "error");
   }
 
+  const fieldClass =
+    "h-12 rounded-full border border-white/10 bg-white/5 px-5 text-[15px] font-normal text-white outline-none focus:border-purple";
+
   if (status === "sent") {
     return (
-      <div className="rounded-[28px] bg-[#f6f6f8] px-8 py-12">
-        <h2 className="text-3xl font-bold tracking-tight">Thank you.</h2>
-        <p className="mt-3 max-w-md text-muted">
+      <div className="glass rounded-[28px] px-8 py-12">
+        <h2 className="text-3xl font-bold tracking-tight text-white">Thank you.</h2>
+        <p className="mt-3 max-w-md text-white/60">
           Your message was received. We will be in touch.
         </p>
         <div className="mt-8">
@@ -59,78 +62,54 @@ export function ContactForm() {
   }
 
   return (
-    <form
-      action={onSubmit}
-      className="grid gap-5 rounded-[28px] bg-[#f6f6f8] px-6 py-8 sm:px-8"
-    >
-      <label className="grid gap-2 text-sm font-medium">
+    <form action={onSubmit} className="glass grid gap-5 rounded-[28px] px-6 py-8 sm:px-8">
+      <label className="grid gap-2 text-sm font-medium text-white">
         Name
-        <input
-          name="name"
-          autoComplete="name"
-          className="h-12 rounded-full border border-ink/10 bg-white px-5 text-[15px] font-normal outline-none focus:border-purple"
-        />
+        <input name="name" autoComplete="name" className={fieldClass} />
         {errors.name ? <span className="text-purple">{errors.name}</span> : null}
       </label>
-      <label className="grid gap-2 text-sm font-medium">
+      <label className="grid gap-2 text-sm font-medium text-white">
         Email
-        <input
-          name="email"
-          type="email"
-          autoComplete="email"
-          className="h-12 rounded-full border border-ink/10 bg-white px-5 text-[15px] font-normal outline-none focus:border-purple"
-        />
+        <input name="email" type="email" autoComplete="email" className={fieldClass} />
         {errors.email ? <span className="text-purple">{errors.email}</span> : null}
       </label>
-      <label className="grid gap-2 text-sm font-medium">
+      <label className="grid gap-2 text-sm font-medium text-white">
         Organization
-        <input
-          name="organization"
-          autoComplete="organization"
-          className="h-12 rounded-full border border-ink/10 bg-white px-5 text-[15px] font-normal outline-none focus:border-purple"
-        />
+        <input name="organization" autoComplete="organization" className={fieldClass} />
       </label>
-      <label className="grid gap-2 text-sm font-medium">
+      <label className="grid gap-2 text-sm font-medium text-white">
         Topic
-        <select
-          name="topic"
-          defaultValue=""
-          className="h-12 rounded-full border border-ink/10 bg-white px-5 text-[15px] font-normal outline-none focus:border-purple"
-        >
-          <option value="" disabled>
+        <select name="topic" defaultValue="" className={fieldClass}>
+          <option value="" disabled className="bg-[#05050a]">
             What would you like to talk about?
           </option>
           {topics.map((topic) => (
-            <option key={topic} value={topic}>
+            <option key={topic} value={topic} className="bg-[#05050a]">
               {topic}
             </option>
           ))}
         </select>
         {errors.topic ? <span className="text-purple">{errors.topic}</span> : null}
       </label>
-      <label className="grid gap-2 text-sm font-medium">
+      <label className="grid gap-2 text-sm font-medium text-white">
         Message
         <textarea
           name="message"
           rows={5}
-          className="rounded-3xl border border-ink/10 bg-white px-5 py-4 text-[15px] font-normal outline-none focus:border-purple"
+          className="rounded-3xl border border-white/10 bg-white/5 px-5 py-4 text-[15px] font-normal text-white outline-none focus:border-purple"
         />
-        {errors.message ? (
-          <span className="text-purple">{errors.message}</span>
-        ) : null}
+        {errors.message ? <span className="text-purple">{errors.message}</span> : null}
       </label>
       <div className="pt-2">
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="group inline-flex items-center gap-3 rounded-full bg-ink py-1.5 pr-1.5 pl-5 text-[15px] font-medium text-white disabled:opacity-60"
+          className="group btn-shine inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#6366F1] px-5 py-3 text-[15px] font-semibold text-white shadow-[0_10px_30px_rgba(139,92,246,0.35)] disabled:opacity-60"
         >
           <span style={{ color: "#ffffff" }}>
             {status === "submitting" ? "Sending" : "Send message"}
           </span>
-          <span className="grid size-9 place-items-center rounded-full bg-white text-ink">
-            →
-          </span>
+          <span>→</span>
         </button>
         {status === "error" ? (
           <p className="mt-3 text-sm text-purple">Something went wrong. Please try again.</p>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { PillButton } from "@/components/ui/PillButton";
+import { Reveal } from "@/components/motion/Reveal";
 import { company, principles } from "@/data/company";
 
 export const metadata: Metadata = {
@@ -18,54 +19,67 @@ export default function AboutPage() {
         title={
           <>
             A smarter tomorrow is a{" "}
-            <span className="text-purple">brighter tomorrow.</span>
+            <span className="text-gradient">brighter tomorrow.</span>
           </>
         }
         body={company.aboutBody}
       />
 
-      <section className="bg-white pb-20">
+      <section className="pb-16">
         <Container>
-          <div className="relative aspect-[16/8] overflow-hidden rounded-[28px]">
-            <Image
-              src="/images/about-interior.png"
-              alt="A quiet studio interior"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/50 to-transparent" />
-            <p className="absolute bottom-8 left-8 text-[28px] font-semibold text-white sm:text-[40px]">
-              Five Minds.
-              <br />
-              One Vision.
-            </p>
+          <Reveal>
+            <div className="relative aspect-[16/8] overflow-hidden rounded-[28px]">
+              <Image
+                src="/images/about-interior.png"
+                alt="A quiet studio interior"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#05050a]/70 to-transparent" />
+              <p className="absolute bottom-8 left-8 text-[28px] font-bold text-white sm:text-[40px]">
+                Five Minds.
+                <br />
+                One Vision.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mt-12 grid gap-10 lg:grid-cols-2">
+            <Reveal>
+              <p className="text-[12px] font-semibold tracking-[0.28em] text-purple uppercase">
+                Mission
+              </p>
+              <p className="mt-3 text-[28px] leading-[1.2] font-bold tracking-tight text-white">
+                {company.mission}
+              </p>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <p className="text-[12px] font-semibold tracking-[0.28em] text-purple uppercase">
+                Vision
+              </p>
+              <p className="mt-3 text-[28px] leading-[1.2] font-bold tracking-tight text-white">
+                {company.vision}
+              </p>
+            </Reveal>
           </div>
 
-          <div className="mt-20 grid gap-16 lg:grid-cols-2">
-            <div>
-              <p className="text-[12px] tracking-[0.22em] text-muted uppercase">Mission</p>
-              <p className="mt-4 text-3xl font-semibold tracking-tight">{company.mission}</p>
-            </div>
-            <div>
-              <p className="text-[12px] tracking-[0.22em] text-muted uppercase">Vision</p>
-              <p className="mt-4 text-3xl font-semibold tracking-tight">{company.vision}</p>
-            </div>
-          </div>
-
-          <ol className="mt-20 divide-y divide-ink/10 border-y border-ink/10">
-            {principles.map((principle) => (
-              <li
-                key={principle.number}
-                className="grid gap-4 py-8 md:grid-cols-[80px_1fr_1.2fr] md:items-baseline"
-              >
-                <p className="text-sm tracking-[0.18em] text-purple">{principle.number}</p>
-                <h2 className="text-2xl font-semibold tracking-tight">{principle.title}</h2>
-                <p className="text-muted">{principle.body}</p>
-              </li>
+          <ol className="mt-12 divide-y divide-white/10 border-y border-white/10">
+            {principles.map((principle, index) => (
+              <Reveal key={principle.number} delay={index * 0.04}>
+                <li className="grid gap-3 py-6 md:grid-cols-[80px_1fr_1.2fr] md:items-baseline">
+                  <p className="text-sm font-semibold tracking-[0.18em] text-purple">
+                    {principle.number}
+                  </p>
+                  <h2 className="text-[22px] font-bold tracking-tight text-white">
+                    {principle.title}
+                  </h2>
+                  <p className="text-white/60">{principle.body}</p>
+                </li>
+              </Reveal>
             ))}
           </ol>
 
-          <div className="mt-16">
+          <div className="mt-10">
             <PillButton href="/contact">Let&apos;s Talk</PillButton>
           </div>
         </Container>

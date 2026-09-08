@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/Container";
+import { Reveal } from "@/components/motion/Reveal";
 
 export function PageIntro({
   eyebrow,
@@ -10,17 +11,21 @@ export function PageIntro({
   body?: string;
 }) {
   return (
-    <section className="bg-white pt-16 pb-10 lg:pt-24 lg:pb-14">
+    <section className="pt-10 pb-6 lg:pt-14 lg:pb-8">
       <Container>
-        <p className="text-[12px] font-medium tracking-[0.22em] text-muted uppercase">
-          {eyebrow}
-        </p>
-        <h1 className="mt-4 max-w-[16ch] text-[42px] leading-[1.12] font-bold tracking-[-0.045em] text-ink sm:text-[56px]">
-          {title}
-        </h1>
-        {body ? (
-          <p className="mt-6 max-w-[36rem] text-[16px] leading-[1.7] text-muted">{body}</p>
-        ) : null}
+        <Reveal>
+          <p className="text-[12px] font-semibold tracking-[0.28em] text-purple uppercase">
+            {eyebrow}
+          </p>
+          <h1 className="mt-3 max-w-[22ch] text-[clamp(2.5rem,4.4vw,4.25rem)] leading-[1.08] font-bold tracking-[-0.05em] text-white">
+            {title}
+          </h1>
+          {body ? (
+            <p className="mt-4 max-w-[40rem] text-[18px] leading-[1.65] text-white/60">
+              {body}
+            </p>
+          ) : null}
+        </Reveal>
       </Container>
     </section>
   );

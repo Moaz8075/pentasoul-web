@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageIntro } from "@/components/ui/PageIntro";
+import { LegalDocument } from "@/components/ui/LegalDocument";
+import { legalUpdated, termsSections } from "@/data/legal";
 
 export const metadata: Metadata = {
-  title: "Terms",
+  title: "Terms of Use",
+  description: "Terms that govern your use of the PentaSoul website.",
 };
 
 export default function TermsPage() {
@@ -11,14 +14,12 @@ export default function TermsPage() {
     <>
       <PageIntro
         eyebrow="Legal"
-        title="Terms & Conditions"
-        body="This is a placeholder. Replace this page with the company’s terms before launch."
+        title="Terms of Use"
+        body="These terms govern access to this website. By using the site, you agree to them."
       />
-      <section className="bg-white pb-24">
-        <Container className="max-w-3xl text-muted">
-          <p>
-            These terms have not been written yet. This page exists so the site structure is complete.
-          </p>
+      <section className="pb-20">
+        <Container>
+          <LegalDocument updated={legalUpdated} sections={termsSections} />
         </Container>
       </section>
     </>

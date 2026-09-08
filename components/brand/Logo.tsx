@@ -45,7 +45,7 @@ export function LogoMark({ className }: LogoMarkProps) {
 
 export function Wordmark({ className }: { className?: string }) {
   return (
-    <span className={cn("flex items-center gap-2.5 text-ink", className)}>
+    <span className={cn("flex items-center gap-2.5 text-white", className)}>
       <LogoMark className="h-[22px] w-[19px] text-purple" />
       <span className="text-[17px] font-semibold tracking-[-0.03em]">
         PentaSoul

@@ -1,19 +1,15 @@
 import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
-import { Services } from "@/components/sections/Services";
+import { Approach } from "@/components/sections/Approach";
 import { Work } from "@/components/sections/Work";
 import { Philosophy } from "@/components/sections/Philosophy";
-import { ContactCta } from "@/components/sections/ContactCta";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <About />
-      <Services />
+      <Approach />
       <Work />
       <Philosophy />
-      <ContactCta />
     </>
   );
 }

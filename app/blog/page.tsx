@@ -14,9 +14,9 @@ export default function BlogPage() {
         title="Nothing published yet."
         body="This space is reserved for writing from PentaSoul. There are no posts to show right now."
       />
-      <section className="bg-white pb-24">
+      <section className="pb-16">
         <Container>
-          <div className="rounded-[28px] border border-ink/10 px-8 py-16 text-muted">
+          <div className="glass rounded-[28px] px-8 py-10 text-white/60">
             Posts will appear here when they are ready to publish.
           </div>
         </Container>

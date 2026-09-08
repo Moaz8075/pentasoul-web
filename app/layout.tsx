@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { PageFade } from "@/components/motion/PageFade";
+import { FloatingWhatsApp } from "@/components/contact/ContactChannels";
 import { SITE } from "@/lib/constants/site";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -27,11 +28,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${jakarta.variable} h-full`}>
-      <body className="flex min-h-full flex-col bg-white font-sans text-ink antialiased">
+    <html lang="en" className={`${inter.variable} h-full`}>
+      <body className="flex min-h-full flex-col bg-paper font-sans text-ink antialiased">
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">
+          <PageFade>{children}</PageFade>
+        </main>
         <Footer />
+        <FloatingWhatsApp />
       </body>
     </html>
   );

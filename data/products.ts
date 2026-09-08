@@ -7,6 +7,7 @@ export type Product = {
   number: string;
   name: string;
   category: string;
+  teaser: string;
   status: ProductStatus;
   statusLabel: string;
   positioning: string;
@@ -22,6 +23,7 @@ export const allProducts: Product[] = [
     number: "01",
     name: "DSMS",
     category: "Education Technology",
+    teaser: "School management platform",
     status: "live",
     statusLabel: "Live Product",
     positioning: "The operating system of a school.",
@@ -36,6 +38,7 @@ export const allProducts: Product[] = [
     number: "02",
     name: "PentaPOS",
     category: "Retail / Commerce Technology",
+    teaser: "Point of sale platform",
     status: "development",
     statusLabel: "In Development",
     positioning: "The counter, connected.",
@@ -49,6 +52,7 @@ export const allProducts: Product[] = [
     number: "03",
     name: "PentaGo",
     category: "Consumer / Commerce Technology",
+    teaser: "Local delivery marketplace",
     status: "development",
     statusLabel: "In Development",
     positioning: "Local food and commerce, at your door.",
@@ -62,12 +66,13 @@ export const allProducts: Product[] = [
     number: "04",
     name: "LegalEase",
     category: "Legal Technology",
+    teaser: "Case management platform",
     status: "live",
     statusLabel: "Live Product",
     positioning: "A quieter way to run a practice.",
     description:
       "A digital workspace for lawyers and law firms to manage cases, hearings, documents, payments and everyday legal workflows.",
-    image: "/images/work-legalease.png",
+    image: "/images/featured-devices.png",
     tint: "#ece6ff",
     href: PRODUCT_URLS.legalease,
   },

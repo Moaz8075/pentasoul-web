@@ -5,28 +5,38 @@ export const company = {
     "Build practical technology that improves how people work, operate and live.",
   vision:
     "Build a growing portfolio of useful technology products serving businesses, professionals and consumers across multiple industries.",
-  heroEyebrow: "Technology for people",
-  heroHeading: ["We build technology", "that moves", "businesses forward."],
+  heroEyebrow: "Build • Innovate • Scale",
+  heroHeading: "Turning Bold Ideas Into",
+  heroAccent: "Reality",
   heroBody:
-    "We create digital products around real problems — software that helps people work better, operate with clarity, and move their organizations forward.",
+    "PentaSoul builds digital products that solve real problems and create meaningful impact for businesses, schools, law firms and enterprises.",
   aboutEyebrow: "About us",
   aboutHeading: "A smarter tomorrow is a brighter tomorrow.",
   aboutBody:
     "PentaSoul exists to bring product thinking, engineering and design together around problems worth solving. We start with the work itself, then build technology people can rely on every day.",
   wallLine: "Five Minds. One Vision.",
-  servicesHeading: ["From idea to real-world ", "solutions."],
-  servicesBody:
-    "We take an idea from first principle through to a living product — strategy, design, engineering, and the systems that keep it running.",
-  workHeading: "Products creating real impact.",
-  philosophyHeading: ["People. Products.", "A Better Tomorrow."],
+  approachEyebrow: "Our Approach",
+  approachHeading: "More than technology.",
+  approachBody:
+    "We bring strategy, design and engineering together so products are useful from day one — and stay that way as they grow.",
+  workEyebrow: "Featured Work",
+  workHeading: "Real Products. Real Results.",
+  philosophyHeading: "A Smarter Tomorrow Is Possible.",
   philosophyBody:
     "We are builders, thinkers, and doers — creating technology with purpose, and products people can actually use. The work is to make something difficult feel simple.",
-  philosophyWords: ["Build", "Innovate", "Scale", "Together"],
+  philosophyWords: ["People", "Products", "Impact"],
   ctaHeading: ["Have an idea?", "Let's make it real."],
   ctaBody:
     "Whether it is a product, a partnership, or a conversation about what comes next — we would like to hear from you.",
-  footerLine: "Built with purpose for a better tomorrow.",
+  footerLine: "Five Minds. One Vision.",
 } as const;
+
+export const stats = [
+  { value: "5+", label: "Years Experience" },
+  { value: "100+", label: "Projects Delivered" },
+  { value: "50+", label: "Happy Clients" },
+  { value: "4", label: "Product Solutions" },
+] as const;
 
 export const principles = [
   {

@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 
 type PillButtonProps = {
   href: string;
   children: React.ReactNode;
-  variant?: "dark" | "light";
+  variant?: "gradient" | "outline" | "white" | "ghost";
   className?: string;
   external?: boolean;
 };
@@ -13,33 +13,42 @@ type PillButtonProps = {
 export function PillButton({
   href,
   children,
-  variant = "dark",
+  variant = "gradient",
   className,
   external,
 }: PillButtonProps) {
   const classes = cn(
-    "group inline-flex shrink-0 items-center gap-3 whitespace-nowrap rounded-full py-1.5 pr-1.5 pl-5 text-[15px] font-medium tracking-[-0.01em] transition-transform duration-300 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-4",
-    variant === "dark" && "bg-ink text-white focus-visible:outline-ink",
-    variant === "light" && "bg-white text-ink focus-visible:outline-white",
+    "group btn-shine inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 py-3 text-[15px] font-semibold tracking-[-0.01em] transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-4",
+    variant === "gradient" &&
+      "bg-gradient-to-r from-[#8B5CF6] to-[#6366F1] text-white shadow-[0_10px_30px_rgba(139,92,246,0.35)] focus-visible:outline-purple",
+    variant === "outline" &&
+      "border border-white/18 bg-white/5 text-white hover:border-white/35 hover:bg-white/10 focus-visible:outline-white",
+    variant === "white" &&
+      "bg-white text-[#05050a] focus-visible:outline-white",
+    variant === "ghost" && "px-0 py-0 text-white/80 hover:text-white",
     className,
   );
 
   const inner = (
     <>
       <span
-        className={variant === "dark" ? "text-white" : "text-ink"}
-        style={{ color: variant === "dark" ? "#ffffff" : "#0a0a0c" }}
+        className="relative z-[1]"
+        style={{
+          color:
+            variant === "white"
+              ? "#05050a"
+              : variant === "ghost"
+                ? undefined
+                : "#ffffff",
+        }}
       >
         {children}
       </span>
-      <span
-        className={cn(
-          "grid size-9 place-items-center rounded-full transition-transform duration-300 group-hover:rotate-45",
-          variant === "dark" ? "bg-white text-ink" : "bg-ink text-white",
-        )}
-      >
-        <ArrowUpRight size={16} strokeWidth={2.2} />
-      </span>
+      <ArrowRight
+        size={16}
+        strokeWidth={2.2}
+        className="relative z-[1] transition-transform duration-300 group-hover:translate-x-0.5"
+      />
     </>
   );
 

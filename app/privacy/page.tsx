@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageIntro } from "@/components/ui/PageIntro";
+import { LegalDocument } from "@/components/ui/LegalDocument";
+import { legalUpdated, privacySections } from "@/data/legal";
 
 export const metadata: Metadata = {
-  title: "Privacy",
+  title: "Privacy Policy",
+  description:
+    "How PentaSoul collects, uses, and protects personal information on this website.",
 };
 
 export default function PrivacyPage() {
@@ -12,13 +16,11 @@ export default function PrivacyPage() {
       <PageIntro
         eyebrow="Legal"
         title="Privacy Policy"
-        body="This is a placeholder. Replace this page with the company’s privacy policy before launch."
+        body="This policy explains what information we collect on this website, how we use it, and the rights you have."
       />
-      <section className="bg-white pb-24">
-        <Container className="max-w-3xl text-muted">
-          <p>
-            PentaSoul does not currently publish a full privacy policy on this site. Do not collect live user data until this page is complete.
-          </p>
+      <section className="pb-20">
+        <Container>
+          <LegalDocument updated={legalUpdated} sections={privacySections} />
         </Container>
       </section>
     </>

@@ -32,8 +32,10 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 bg-white/90 backdrop-blur-md transition-shadow duration-300",
-        scrolled && "shadow-[0_1px_0_rgba(10,10,12,0.06)]",
+        "sticky top-0 z-50 transition-[background,border-color] duration-300",
+        scrolled
+          ? "border-b border-white/8 bg-[#05050a]/80 backdrop-blur-xl"
+          : "border-b border-transparent bg-transparent",
       )}
     >
       <div className="mx-auto grid h-[76px] max-w-[1240px] grid-cols-[auto_1fr_auto] items-center gap-6 px-6 md:px-10">
@@ -49,19 +51,21 @@ export function Header() {
             const active =
               link.href === "/"
                 ? pathname === "/"
-                : pathname.startsWith(link.href);
+                : link.href.startsWith("/#")
+                  ? false
+                  : pathname.startsWith(link.href);
             return (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative px-3.5 pt-3 pb-2 text-[15px] font-medium tracking-[-0.01em] text-ink/80 transition-colors hover:text-ink",
-                  active && "text-ink",
+                  "relative px-3.5 pt-2 pb-3.5 text-[15px] font-medium tracking-[-0.01em] text-white/70 transition-colors hover:text-white",
+                  active && "text-white",
                 )}
               >
                 {link.label}
                 {active ? (
-                  <span className="absolute top-0 left-1/2 size-1.5 -translate-x-1/2 rounded-full bg-purple" />
+                  <span className="absolute bottom-1 left-1/2 size-1.5 -translate-x-1/2 rounded-full bg-purple" />
                 ) : null}
               </Link>
             );
@@ -70,11 +74,13 @@ export function Header() {
 
         <div className="flex items-center justify-self-end gap-3">
           <div className="hidden lg:block">
-            <PillButton href="/contact">Let&apos;s Talk</PillButton>
+            <PillButton href="/contact" className="rounded-full px-5 py-2.5 text-[13px] tracking-[0.08em] uppercase">
+              Let&apos;s Talk
+            </PillButton>
           </div>
           <button
             type="button"
-            className="relative z-50 grid size-11 place-items-center rounded-full border border-ink/10 lg:hidden"
+            className="relative z-50 grid size-11 place-items-center rounded-full border border-white/15 text-white lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((value) => !value)}
@@ -92,7 +98,7 @@ export function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-white lg:hidden"
+            className="fixed inset-0 z-40 bg-[#05050a] lg:hidden"
           >
             <nav className="flex h-full flex-col justify-center px-8">
               {navLinks.map((link, index) => (
@@ -105,7 +111,7 @@ export function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="block py-3 text-4xl font-semibold tracking-tight"
+                    className="block py-3 text-4xl font-semibold tracking-tight text-white"
                   >
                     {link.label}
                   </Link>

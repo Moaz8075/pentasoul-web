@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <>
       <PageIntro eyebrow="404" title="This page does not exist." />
-      <section className="bg-white pb-24">
+      <section className="pb-16">
         <Container>
           <PillButton href="/">Back home</PillButton>
         </Container>

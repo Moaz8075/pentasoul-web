@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { ProductCard } from "@/components/products/ProductCard";
+import { Reveal } from "@/components/motion/Reveal";
 import { allProducts } from "@/data/products";
 
 export const metadata: Metadata = {
@@ -17,15 +18,17 @@ export default function ProductsPage() {
         title={
           <>
             Products creating{" "}
-            <span className="text-purple">real impact.</span>
+            <span className="text-gradient">real impact.</span>
           </>
         }
         body="PentaSoul builds products around real work — education, retail, local commerce and law."
       />
-      <section className="bg-white pb-24">
-        <Container className="grid gap-8">
-          {allProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+      <section className="pb-16">
+        <Container className="grid gap-6">
+          {allProducts.map((product, index) => (
+            <Reveal key={product.id} delay={index * 0.06}>
+              <ProductCard product={product} />
+            </Reveal>
           ))}
         </Container>
       </section>

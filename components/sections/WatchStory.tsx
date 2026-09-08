@@ -26,12 +26,12 @@ export function WatchStory() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-3 text-[15px] font-medium text-ink"
+        className="inline-flex items-center gap-3 text-[15px] font-semibold text-white/80 transition-colors hover:text-white"
       >
-        <span className="grid size-11 place-items-center rounded-full border border-ink/15">
+        <span className="grid size-11 place-items-center rounded-full border border-white/20">
           <Play size={14} fill="currentColor" className="ml-0.5" />
         </span>
-        Watch Our Story
+        Watch Showreel
       </button>
 
       {open ? (
@@ -39,17 +39,17 @@ export function WatchStory() {
           role="dialog"
           aria-modal="true"
           aria-labelledby="story-title"
-          className="fixed inset-0 z-[80] flex items-center justify-center bg-ink/80 p-6 backdrop-blur-sm"
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-[#05050a]/80 p-6 backdrop-blur-sm"
           onClick={() => setOpen(false)}
         >
           <div
-            className="relative w-full max-w-3xl overflow-hidden rounded-[28px] bg-white"
+            className="relative w-full max-w-3xl overflow-hidden rounded-[28px] border border-white/10 bg-[#0c0c12]"
             onClick={(event) => event.stopPropagation()}
           >
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="absolute top-4 right-4 z-10 grid size-10 place-items-center rounded-full bg-white/90 text-ink"
+              className="absolute top-4 right-4 z-10 grid size-10 place-items-center rounded-full bg-white/90 text-[#05050a]"
             >
               <X size={18} />
               <span className="sr-only">Close</span>
@@ -63,10 +63,10 @@ export function WatchStory() {
               />
             </div>
             <div className="px-8 py-7">
-              <p id="story-title" className="text-2xl font-semibold tracking-tight">
+              <p id="story-title" className="text-2xl font-semibold tracking-tight text-white">
                 {company.wallLine}
               </p>
-              <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted">
+              <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-white/60">
                 {company.aboutBody}
               </p>
             </div>
