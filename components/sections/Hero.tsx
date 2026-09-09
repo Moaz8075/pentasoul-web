@@ -3,7 +3,6 @@
 import { Mouse } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PillButton } from "@/components/ui/PillButton";
-import { WatchStory } from "@/components/sections/WatchStory";
 import { HeroCrystal } from "@/components/sections/HeroCrystal";
 import { FadeUp } from "@/components/motion/Reveal";
 import { LineReveal } from "@/components/motion/LineReveal";
@@ -41,9 +40,8 @@ export function Hero() {
               </p>
             </FadeUp>
             <FadeUp delay={0.44}>
-              <div className="mt-8 flex flex-wrap items-center gap-5">
+              <div className="mt-8">
                 <PillButton href="/contact">Start a Conversation</PillButton>
-                <WatchStory />
               </div>
             </FadeUp>
             <FadeUp delay={0.56}>

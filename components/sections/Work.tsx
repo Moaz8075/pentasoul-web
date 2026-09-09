@@ -84,12 +84,8 @@ export function Work() {
                 </h3>
                 <p className="mt-2 text-[16px] text-white/55">{product.teaser}</p>
                 <div className="mt-6">
-                  <PillButton
-                    href={product.href ?? "/products"}
-                    variant="white"
-                    external={Boolean(product.href)}
-                  >
-                    View Case Study
+                  <PillButton href={product.href} variant="white">
+                    {product.status === "live" ? "View Product" : "Coming Soon"}
                   </PillButton>
                 </div>
               </motion.div>

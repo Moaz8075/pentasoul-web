@@ -16,8 +16,9 @@ export const CONTACT = {
 } as const;
 
 export const PRODUCT_URLS = {
-  dsms: process.env.NEXT_PUBLIC_DSMS_URL ?? "https://placeholder.pentasoul.dev/dsms",
+  dsms: process.env.NEXT_PUBLIC_DSMS_URL ?? "https://home.dsmspk.com/",
   legalease:
     process.env.NEXT_PUBLIC_LEGALEASE_URL ??
-    "https://placeholder.pentasoul.dev/legalease",
+    "https://lms-repo-frontend.vercel.app/",
+  underDevelopment: "/underdevelopment",
 } as const;

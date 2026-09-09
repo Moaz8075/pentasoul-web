@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
+import { isExternalHref } from "@/lib/utils/href";
 
 type PillButtonProps = {
   href: string;
@@ -52,7 +53,7 @@ export function PillButton({
     </>
   );
 
-  if (external) {
+  if (external ?? isExternalHref(href)) {
     return (
       <a href={href} target="_blank" rel="noreferrer" className={classes}>
         {inner}

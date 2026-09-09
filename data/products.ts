@@ -14,7 +14,7 @@ export type Product = {
   description: string;
   image: string;
   tint: string;
-  href?: string;
+  href: string;
 };
 
 export const allProducts: Product[] = [
@@ -46,6 +46,7 @@ export const allProducts: Product[] = [
       "A modern point-of-sale and business operations platform for retailers, restaurants and growing businesses.",
     image: "/images/work-pentapos.png",
     tint: "#ececec",
+    href: PRODUCT_URLS.underDevelopment,
   },
   {
     id: "pentago",
@@ -60,6 +61,7 @@ export const allProducts: Product[] = [
       "A local marketplace connecting customers with restaurants, grocery stores, neighbourhood businesses and delivery partners.",
     image: "/images/work-pentago.png",
     tint: "#f3e8e4",
+    href: PRODUCT_URLS.underDevelopment,
   },
   {
     id: "legalease",
@@ -79,3 +81,7 @@ export const allProducts: Product[] = [
 ];
 
 export const featuredWork = allProducts;
+
+export const upcomingProducts = allProducts.filter(
+  (product) => product.status === "development",
+);

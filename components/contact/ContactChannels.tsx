@@ -35,7 +35,7 @@ const channels = [
 
 export function ContactChannels() {
   return (
-    <div className="grid gap-4">
+    <div className="grid gap-4 lg:grid-cols-2">
       {channels.map((channel) => {
         const Icon = channel.icon;
         return (
@@ -45,7 +45,7 @@ export function ContactChannels() {
             target={channel.href.startsWith("http") ? "_blank" : undefined}
             rel={channel.href.startsWith("http") ? "noreferrer" : undefined}
             className={cn(
-              "glass glow-card group flex items-center gap-4 rounded-3xl p-5 transition-all duration-300",
+              "glass glow-card group flex items-center gap-4 rounded-[28px] p-6 transition-all duration-300 sm:p-7",
               channel.glow,
             )}
           >

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "motion/react";
 import {
   ArrowUpRight,
@@ -11,6 +12,7 @@ import {
 } from "lucide-react";
 import type { Product } from "@/data/products";
 import { cn } from "@/lib/utils/cn";
+import { isExternalHref } from "@/lib/utils/href";
 
 const icons = {
   dsms: GraduationCap,
@@ -45,7 +47,7 @@ export function ProductCard({ product, className }: { product: Product; classNam
         <p className="mt-3 max-w-[32rem] text-[16px] leading-[1.65] text-white/60">
           {product.description}
         </p>
-        {product.href ? (
+        {isExternalHref(product.href) ? (
           <a
             href={product.href}
             target="_blank"
@@ -56,7 +58,13 @@ export function ProductCard({ product, className }: { product: Product; classNam
             <ArrowUpRight size={16} />
           </a>
         ) : (
-          <p className="mt-6 text-[16px] font-semibold text-white/45">{product.statusLabel}</p>
+          <Link
+            href={product.href}
+            className="mt-6 inline-flex items-center gap-2 text-[16px] font-semibold text-white"
+          >
+            Coming Soon
+            <ArrowUpRight size={16} />
+          </Link>
         )}
       </div>
       <div className="relative min-h-[240px] overflow-hidden sm:min-h-[320px] lg:min-h-[420px]">
