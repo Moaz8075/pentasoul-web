@@ -7,6 +7,7 @@ import { legalUpdated, termsSections } from "@/data/legal";
 export const metadata: Metadata = {
   title: "Terms of Use",
   description: "Terms that govern your use of the PentaSoul website.",
+  alternates: { canonical: "/terms/" },
 };
 
 export default function TermsPage() {

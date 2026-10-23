@@ -8,6 +8,7 @@ import { allProducts } from "@/data/products";
 export const metadata: Metadata = {
   title: "Products",
   description: "A growing portfolio of useful technology products.",
+  alternates: { canonical: "/products/" },
 };
 
 export default function ProductsPage() {
@@ -21,7 +22,7 @@ export default function ProductsPage() {
             <span className="text-gradient">real impact.</span>
           </>
         }
-        body="PentaSoul builds products around real work — education, retail, local commerce and law."
+        body="PentaSoul builds products around real work — education, retail, local commerce, law and personal finance."
       />
       <section className="pb-16">
         <Container className="grid gap-6">

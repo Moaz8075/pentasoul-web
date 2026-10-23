@@ -4,6 +4,8 @@ import { PageIntro } from "@/components/ui/PageIntro";
 
 export const metadata: Metadata = {
   title: "Blog",
+  description: "Notes from PentaSoul on building products, engineering and design.",
+  alternates: { canonical: "/blog/" },
 };
 
 export default function BlogPage() {

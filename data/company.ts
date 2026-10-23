@@ -35,7 +35,7 @@ export const stats = [
   { value: "5+", label: "Years Experience" },
   { value: "100+", label: "Projects Delivered" },
   { value: "50+", label: "Happy Clients" },
-  { value: "4", label: "Product Solutions" },
+  { value: "5", label: "Product Solutions" },
 ] as const;
 
 export const principles = [

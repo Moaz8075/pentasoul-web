@@ -8,6 +8,7 @@ import { Philosophy } from "@/components/sections/Philosophy";
 export const metadata: Metadata = {
   title: "Careers",
   description: "Build products that people actually use.",
+  alternates: { canonical: "/careers/" },
 };
 
 const disciplines = [
