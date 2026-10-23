@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "How PentaSoul collects, uses, and protects personal information on this website.",
+  alternates: { canonical: "/privacy/" },
 };
 
 export default function PrivacyPage() {

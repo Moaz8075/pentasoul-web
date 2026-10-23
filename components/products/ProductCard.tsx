@@ -6,6 +6,7 @@ import { motion } from "motion/react";
 import {
   ArrowUpRight,
   Bike,
+  Calculator,
   GraduationCap,
   Scale,
   Store,
@@ -19,6 +20,7 @@ const icons = {
   pentapos: Store,
   pentago: Bike,
   legalease: Scale,
+  mortgagecalc: Calculator,
 };
 
 export function ProductCard({ product, className }: { product: Product; className?: string }) {

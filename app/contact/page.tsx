@@ -8,6 +8,7 @@ import { company } from "@/data/company";
 export const metadata: Metadata = {
   title: "Contact",
   description: company.ctaBody,
+  alternates: { canonical: "/contact/" },
 };
 
 export default function ContactPage() {

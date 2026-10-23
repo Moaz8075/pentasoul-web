@@ -9,6 +9,7 @@ import { company, principles } from "@/data/company";
 export const metadata: Metadata = {
   title: "About",
   description: company.aboutBody,
+  alternates: { canonical: "/about/" },
 };
 
 export default function AboutPage() {

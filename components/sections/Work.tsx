@@ -7,6 +7,7 @@ import {
   ArrowLeft,
   ArrowRight,
   Bike,
+  Calculator,
   GraduationCap,
   Scale,
   Store,
@@ -25,6 +26,7 @@ const icons = {
   pentapos: Store,
   pentago: Bike,
   legalease: Scale,
+  mortgagecalc: Calculator,
 };
 
 export function Work() {

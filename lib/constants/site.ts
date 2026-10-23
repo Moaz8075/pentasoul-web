@@ -3,7 +3,7 @@ export const SITE = {
   tagline: "Technology with purpose.",
   description:
     "PentaSoul is a product-focused technology company building digital products around meaningful real-world problems.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.pentasoul.com",
   copyrightYear: 2026,
   email: "pentasoul05@gmail.com",
   whatsapp: "+923000052248",
@@ -20,5 +20,6 @@ export const PRODUCT_URLS = {
   legalease:
     process.env.NEXT_PUBLIC_LEGALEASE_URL ??
     "https://lms-repo-frontend.vercel.app/",
+  mortgagecalc: "https://mortgagecalc.pentasoul.com/",
   underDevelopment: "/underdevelopment",
 } as const;

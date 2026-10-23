@@ -78,6 +78,21 @@ export const allProducts: Product[] = [
     tint: "#ece6ff",
     href: PRODUCT_URLS.legalease,
   },
+  {
+    id: "mortgagecalc",
+    number: "05",
+    name: "Mortgage Calculator",
+    category: "Finance / Consumer Technology",
+    teaser: "Mortgage calculator for every country",
+    status: "live",
+    statusLabel: "Live Product",
+    positioning: "Know your payment before you sign.",
+    description:
+      "A free mortgage calculator for every country, in 13 languages — with official interest-rate history, local purchase taxes and scenarios that show what happens if rates rise or fall.",
+    image: "/images/work-mortgagecalc.jpg",
+    tint: "#e6eefa",
+    href: PRODUCT_URLS.mortgagecalc,
+  },
 ];
 
 export const featuredWork = allProducts;
